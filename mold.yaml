@@ -1,0 +1,20 @@
+recipes:
+  init:
+    help: "Initialize Terraform"
+    command: ["terraform", "init"]
+
+  plan:
+    help: "Generate a Terraform plan"
+    command: ["terraform", "plan"]
+
+  apply:
+    help: "Apply Terraform"
+    command: ["terraform", "apply"]
+
+  fmt:
+    help: "Run Terraform's autoformatter"
+    command: ["terraform", "fmt"]
+
+  lint:
+    help: "Run Terraform's autoformatter lint"
+    command: ["terraform", "fmt", "-check"]
