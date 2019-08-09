@@ -15,6 +15,6 @@ recipes:
     help: "Run Terraform's autoformatter"
     command: ["terraform", "fmt"]
 
-  lint:
-    help: "Run Terraform's autoformatter lint"
+  fmtcheck:
+    help: "Run Terraform's autoformatter check"
     command: ["terraform", "fmt", "-check"]
