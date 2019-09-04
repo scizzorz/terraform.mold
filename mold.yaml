@@ -11,6 +11,10 @@ recipes:
     help: "Apply Terraform"
     command: ["terraform", "apply"]
 
+  autoapply:
+    help: "Apply Terraform"
+    command: ["terraform", "apply", "-auto-approve"]
+
   fmt:
     help: "Run Terraform's autoformatter"
     command: ["terraform", "fmt"]
