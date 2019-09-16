@@ -11,8 +11,12 @@ recipes:
     help: "Apply Terraform"
     command: ["terraform", "apply"]
 
-  autoapply:
-    help: "Apply Terraform"
+  destroy:
+    help: "Destroy Terraform"
+    command: ["terraform", "apply"]
+
+  deploy:
+    help: "Apply Terraform without asking for confirmation"
     command: ["terraform", "apply", "-auto-approve"]
 
   fmt:
