@@ -13,7 +13,7 @@ recipes:
 
   destroy:
     help: "Destroy Terraform"
-    command: ["terraform", "apply"]
+    command: ["terraform", "destroy"]
 
   deploy:
     help: "Apply Terraform without asking for confirmation"
