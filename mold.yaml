@@ -1,28 +1,42 @@
+version: "0.3.0"
+
+includes:
+  - url: "https://github.com/xtfc/std.mold"
+
 recipes:
   init:
     help: "Initialize Terraform"
-    command: ["terraform", "init"]
+    type: "sh"
+    script: |
+      terraform $TF_ARGS init $TF_INIT_ARGS
 
   plan:
     help: "Generate a Terraform plan"
-    command: ["terraform", "plan"]
+    type: "sh"
+    script: |
+      terraform $TF_ARGS plan $TF_PLAN_ARGS
 
   apply:
     help: "Apply Terraform"
-    command: ["terraform", "apply"]
+    type: "sh"
+    script: |
+      terraform $TF_ARGS apply $TF_APPLY_ARGS
 
   destroy:
     help: "Destroy Terraform"
-    command: ["terraform", "destroy"]
-
-  deploy:
-    help: "Apply Terraform without asking for confirmation"
-    command: ["terraform", "apply", "-auto-approve"]
+    type: "sh"
+    script: |
+      terraform $TF_ARGS destroy $TF_DESTROY_ARGS
 
   fmt:
     help: "Run Terraform's autoformatter"
-    command: ["terraform", "fmt"]
+    type: "sh"
+    script: |
+      terraform $TF_ARGS fmt $TF_FMT_ARGS
 
   fmtcheck:
     help: "Run Terraform's autoformatter check"
     command: ["terraform", "fmt", "-check"]
+    type: "sh"
+    script: |
+      terraform $TF_ARGS fmt -check $TF_FMTCHECK_ARGS
