@@ -1,42 +1,60 @@
-version: "0.3.0"
+version: "0.5.0"
 
 includes:
-  - url: "https://github.com/xtfc/std.mold"
+  - url: "github.com/xtfc/std.mold"
+    ref: "0.5"
 
 recipes:
   init:
     help: "Initialize Terraform"
-    type: "sh"
+    runtime: "sh"
+    variables:
+      TF_ARGS: "Additional arguments to pass to terraform"
+      TF_INIT_ARGS: "Additional arguments to pass to terraform init"
     script: |
       terraform $TF_ARGS init $TF_INIT_ARGS
 
   plan:
     help: "Generate a Terraform plan"
-    type: "sh"
+    runtime: "sh"
+    variables:
+      TF_ARGS: "Additional arguments to pass to terraform"
+      TF_PLAN_ARGS: "Additional arguments to pass to terraform plan"
     script: |
       terraform $TF_ARGS plan $TF_PLAN_ARGS
 
   apply:
     help: "Apply Terraform"
-    type: "sh"
+    runtime: "sh"
+    variables:
+      TF_ARGS: "Additional arguments to pass to terraform"
+      TF_APPLY_ARGS: "Additional arguments to pass to terraform apply"
     script: |
       terraform $TF_ARGS apply $TF_APPLY_ARGS
 
   destroy:
     help: "Destroy Terraform"
-    type: "sh"
+    runtime: "sh"
+    variables:
+      TF_ARGS: "Additional arguments to pass to terraform"
+      TF_DESTROY_ARGS: "Additional arguments to pass to terraform destroy"
     script: |
       terraform $TF_ARGS destroy $TF_DESTROY_ARGS
 
   fmt:
     help: "Run Terraform's autoformatter"
-    type: "sh"
+    runtime: "sh"
+    variables:
+      TF_ARGS: "Additional arguments to pass to terraform"
+      TF_FMT_ARGS: "Additional arguments to pass to terraform fmt"
     script: |
       terraform $TF_ARGS fmt $TF_FMT_ARGS
 
   fmtcheck:
     help: "Run Terraform's autoformatter check"
-    command: ["terraform", "fmt", "-check"]
-    type: "sh"
+    runtime: "sh"
+    variables:
+      TF_ARGS: "Additional arguments to pass to terraform"
+      TF_FMTCHECK_ARGS: "Additional arguments to pass to terraform fmt -check"
     script: |
       terraform $TF_ARGS fmt -check $TF_FMTCHECK_ARGS
