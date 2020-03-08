@@ -1,0 +1,31 @@
+version "0.6"
+
+recipe init {
+  help "Initialize Terraform"
+  $ "terraform $TF_ARGS init $TF_INIT_ARGS"
+}
+
+recipe plan {
+  help "Generate a Terraform plan"
+  $ "terraform $TF_ARGS plan $TF_PLAN_ARGS"
+}
+
+recipe apply {
+  help "Apply Terraform"
+  $ "terraform $TF_ARGS apply $TF_APPLY_ARGS"
+}
+
+recipe destroy {
+  help "Destroy Terraform"
+  $ "terraform $TF_ARGS destroy $TF_DESTROY_ARGS"
+}
+
+recipe fmt {
+  help "Run Terraform's autoformatter"
+  $ "terraform $TF_ARGS fmt $TF_FMT_ARGS"
+}
+
+recipe fmtcheck {
+  help "Run Terraform's autoformatter check"
+  $ "terraform $TF_ARGS fmt -check $TF_FMTCHECK_ARGS"
+}
