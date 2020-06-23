@@ -1,5 +1,10 @@
 version "0.6"
 
+recipe clean {
+  help "Remove the any downloaded Terraform artifacts"
+  $ "rm -rf .terraform"
+}
+
 recipe init {
   help "Initialize Terraform"
   $ "terraform $TF_ARGS init $TF_INIT_ARGS"
